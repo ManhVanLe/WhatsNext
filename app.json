@@ -3,7 +3,10 @@
     "name": "WhatsNext",
     "slug": "WhatsNext",
     "version": "1.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "whatsnext",
@@ -29,7 +32,9 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
-      ]
+      ],
+      "@react-native-community/datetimepicker",
+      "expo-sqlite"
     ],
     "experiments": {
       "reactCompiler": true

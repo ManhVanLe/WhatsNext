@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 
 import AppTabs from '@/components/app-tabs';
 import { palette } from '@/components/app-ui';
+import { EventsProvider } from '@/context/events-context';
 import { TasksProvider } from '@/context/tasks-context';
 
 const darkTheme = {
@@ -23,7 +24,9 @@ export default function RootLayout() {
     <TasksProvider>
       <ThemeProvider value={darkTheme}>
         <StatusBar style="light" />
-        <AppTabs />
+        <EventsProvider>
+          <AppTabs />
+        </EventsProvider>
       </ThemeProvider>
     </TasksProvider>
   );

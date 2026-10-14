@@ -43,23 +43,26 @@ export function Screen({ children, hasHeader = false }) {
   );
 }
 
-export function AppButton({ label, onPress, secondary = false }) {
+export function AppButton({ label, onPress, secondary = false, disabled = false }) {
   return (
     <Pressable
       accessibilityRole="button"
+      accessibilityState={{ disabled }}
+      disabled={disabled}
       onPress={onPress}
-      style={({ pressed }) => [ui.button, secondary && ui.secondary, pressed && ui.pressed]}
+      style={({ pressed }) => [ui.button, secondary && ui.secondary, (pressed || disabled) && ui.pressed]}
     >
       <Text style={[ui.buttonText, secondary && { color: palette.text }]}>{label}</Text>
     </Pressable>
   );
 }
 
-export function Choice({ label, selected, onPress }) {
+export function Choice({ label, selected, onPress, disabled = false }) {
   return (
     <Pressable
       accessibilityRole="radio"
-      accessibilityState={{ checked: selected }}
+      accessibilityState={{ checked: selected, disabled }}
+      disabled={disabled}
       onPress={onPress}
       style={({ pressed }) => [ui.choice, selected && ui.selected, pressed && ui.pressed]}
     >
